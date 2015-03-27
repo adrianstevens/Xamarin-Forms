@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+	x:Class="FormsMaps.MyMapPage">
+	<Grid Padding="0,20,0,0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="450"/>
+		</Grid.RowDefinitions>
+
+		<Label Text="Forms Maps!!!"
+			Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+
+			<Button Text="Click Here"
+			Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+
+      	<maps:Map x:Name="MyMap"
+      		Grid.Row="2"
+       	 	IsShowingUser="true"
+        	VerticalOptions="FillAndExpand"
+        	HorizontalOptions="FillAndExpand"
+        	MapType="Hybrid"  	/>
+    </Grid>
+</ContentPage>
