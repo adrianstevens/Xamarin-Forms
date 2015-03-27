@@ -2,27 +2,29 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
-using System.IO;
 using System.Reflection;
+using System.IO;
 
 namespace WebViewLocalContent
 {
-	public partial class MyMainPage : ContentPage
+	public partial class MyMainPageBindingFix : ContentPage
 	{
 		public string htmlText { get; set; }
-		public HtmlWebViewSource htmlSource { get; set; }
 
-		public MyMainPage ()
+		public MyMainPageBindingFix ()
 		{
 			LoadHTML ();
 
-			htmlSource = new HtmlWebViewSource ();
-
 			InitializeComponent ();
 
-			//wire it up without binding
-			htmlSource.Html = htmlText;
-			AboutWebView.Source = htmlSource;
+			BindingContext = this;
+		}
+
+		protected override void OnBindingContextChanged ()
+		{
+			base.OnBindingContextChanged ();
+
+			AboutWebView.Source.BindingContext = BindingContext;
 		}
 
 		void LoadHTML ()

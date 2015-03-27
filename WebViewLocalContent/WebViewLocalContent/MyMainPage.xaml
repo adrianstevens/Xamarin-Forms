@@ -3,11 +3,12 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	x:Class="WebViewLocalContent.MyMainPage">
 	<ScrollView>
-		<StackLayout>
-	    	<WebView x:Name="AboutWebView" HorizontalOptions="Fill" VerticalOptions="FillAndExpand"
-	    		Source="{Binding htmlSource}" />
-
-	   		<!--  <Label Text="{Binding htmlText}"/> -->
+		<StackLayout Padding="0, 30, 0, 0">
+			<Label Text="No Binding" HorizontalOptions="CenterAndExpand"/>
+	    	<WebView x:Name="AboutWebView" 
+	    	HorizontalOptions="Fill" 
+	    	VerticalOptions="FillAndExpand" 
+	    	/>
 	  </StackLayout>
   </ScrollView>
 </ContentPage>

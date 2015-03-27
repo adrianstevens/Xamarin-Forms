@@ -9,7 +9,12 @@ namespace WebViewLocalContent
 		public App ()
 		{
 			// The root page of your application
-			MainPage = new MyMainPage ();
+			var tabPage = new TabbedPage();
+
+			tabPage.Children.Add (new MyMainPage (){Title="No Binding"});
+			tabPage.Children.Add (new MyMainPageBindingFix (){Title="Binding Fix"});
+
+			MainPage = tabPage;
 		}
 
 		protected override void OnStart ()
