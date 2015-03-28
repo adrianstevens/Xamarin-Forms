@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:ValueConverter;assembly=ValueConverter" 
+	x:Class="ValueConverter.MyMainPage">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<local:BoolToOnOff x:Key="boolOnOff" />
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<StackLayout Padding="10,30,10,10">
+
+		<Label Text="{Binding ., StringFormat='Static bool is: {0}'}">
+			<Label.BindingContext>
+				<x:Boolean>True</x:Boolean>
+			</Label.BindingContext>
+		</Label>
+
+		<Label BindingContext="{x:Reference MySwitch}" >
+			<Label.Text>
+				<Binding Path="IsToggled" Converter="{StaticResource boolOnOff}">
+					<Binding.ConverterParameter>
+						<x:Boolean>True</x:Boolean>
+					</Binding.ConverterParameter>
+				</Binding>
+			</Label.Text>
+		</Label>
+
+		<Label BindingContext="{x:Reference MySwitch}"
+			Text="{Binding IsToggled, StringFormat='IsToggled is: {0}'}"/>
+
+		<Label Text="Hello Bindings" 
+			BindingContext="{x:Reference MySwitch}"
+			IsVisible="{Binding IsToggled}" />
+
+		<Switch x:Name="MySwitch"></Switch>
+	</StackLayout>
+</ContentPage>
