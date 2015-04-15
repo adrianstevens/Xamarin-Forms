@@ -23,27 +23,26 @@ namespace ListViewScrollTo
 			//add list
 			myList = CreateList ();
 			myList.ItemsSource = people;
-			myList.ItemTapped += MyList_ItemTapped;
+			//myList.ItemSelected - responds to ANY selection
+			myList.ItemTapped += MyList_ItemTapped;//only respond to touch events, not programatic selections
 			Grid.SetRow (myList, 1);
 
 			myGrid.Children.Add (myList);
 
 			//add button
-			var myButton = new Button () {
+			var myButton = new Button () 
+			{
 				HorizontalOptions = LayoutOptions.CenterAndExpand,
 				VerticalOptions = LayoutOptions.Center,
 				HeightRequest = 40,
-				Text = "Scroll to Random Item",
+				Text = "Scroll to Random Person",
 			};
 			myButton.Clicked += MyButton_Clicked;
-
 
 			Grid.SetRow (myButton, 0);
 			myGrid.Children.Add (myButton);
 
-
 			Content = myGrid;
-
 		}
 
 		//use item slected if you want an event to fire when items are programatically selected
@@ -57,6 +56,7 @@ namespace ListViewScrollTo
 			int index = new Random ().Next (people.Count);
 
 			myList.ScrollTo (people [index], ScrollToPosition.Center, true);
+
 			myList.SelectedItem = people [index];
 		}
 
@@ -74,11 +74,9 @@ namespace ListViewScrollTo
 
 						var stack = new StackLayout
 						{
-							
 							Padding = new Thickness(5),
 							Orientation = StackOrientation.Horizontal,
-							BackgroundColor = Color.Black,
-							Children =
+							Children = 
 							{
 								boxView,
 								new StackLayout
@@ -97,7 +95,6 @@ namespace ListViewScrollTo
 						nameLabel.SetBinding(Label.TextProperty, "Name");
 						birthdayLabel.SetBinding(Label.TextProperty, new Binding("Birthday", BindingMode.OneWay, null, null, "Born {0:d}"));
 						boxView.SetBinding(BoxView.ColorProperty, "FavoriteColor");
-						stack.SetBinding(BackgroundColorProperty, "BackgroundColor");
 
 						return new ViewCell
 						{
