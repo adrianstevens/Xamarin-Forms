@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="AsyncWork.AsyncMainPage">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem x:Name="buttonRefresh" Name="Refresh" Icon="refresh.png" />
+	</ContentPage.ToolbarItems>
+
+	<StackLayout Orientation="Vertical" Padding="5">
+		<ProgressBar x:Name="progressBar" IsVisible="false"/>
+		<ListView x:Name="listSongs" IsPullToRefreshEnabled="true"/>
+	</StackLayout>
+</ContentPage>

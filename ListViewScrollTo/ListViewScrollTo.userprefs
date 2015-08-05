@@ -1,1 +1,12 @@
-﻿<Properties StartupItem="Droid/ListViewScrollTo.Droid.csproj" />
+﻿<Properties StartupItem="iOS/ListViewScrollTo.iOS.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone5s.8.4" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="ListViewScrollTo/ListViewPage.cs">
+    <Files>
+      <File FileName="ListViewScrollTo/ListViewPage.cs" Line="58" Column="60" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
