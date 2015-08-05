@@ -22,7 +22,10 @@ namespace ListViewScrollTo
 
 			//add list
 			myList = CreateList ();
+			//set data source - prefer observable collection 
 			myList.ItemsSource = people;
+
+
 			//myList.ItemSelected - responds to ANY selection
 			myList.ItemTapped += MyList_ItemTapped;//only respond to touch events, not programatic selections
 			Grid.SetRow (myList, 1);
@@ -62,45 +65,47 @@ namespace ListViewScrollTo
 
 		ListView CreateList ()
 		{
-			var listView = new ListView
-			{
+			//create the data template
+			var dataTemplate = new DataTemplate (() => {
+				var nameLabel = new Label ();
+				var birthdayLabel = new Label ();
+				var boxView = new BoxView ();
+
+				var stack = new StackLayout 
+				{
+					Padding = new Thickness (5),
+					Orientation = StackOrientation.Horizontal,
+				};
+
+				stack.Children.Add (boxView);
+				stack.Children.Add (new StackLayout 
+					{
+						VerticalOptions = LayoutOptions.Center,
+						Spacing = 0,
+						Children = 
+						{
+							nameLabel,
+							birthdayLabel
+						}
+					});
+
+				//set the bindings
+				nameLabel.SetBinding (Label.TextProperty, "Name");
+				birthdayLabel.SetBinding (Label.TextProperty, new Binding ("Birthday", BindingMode.OneWay, null, null, "Born {0:d}"));
+				boxView.SetBinding (BoxView.ColorProperty, "FavoriteColor");
+
+				//create the ViewCell
+				return new ViewCell 
+				{
+					View = stack
+				};
+			});
+
+			//create the list view
+			var listView = new ListView {
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				VerticalOptions = LayoutOptions.FillAndExpand,
-				ItemTemplate = new DataTemplate(() =>
-					{
-						var nameLabel = new Label();
-						var birthdayLabel = new Label();
-						var boxView = new BoxView();
-
-						var stack = new StackLayout
-						{
-							Padding = new Thickness(5),
-							Orientation = StackOrientation.Horizontal,
-							Children = 
-							{
-								boxView,
-								new StackLayout
-								{
-									VerticalOptions = LayoutOptions.Center,
-									Spacing = 0,
-									Children =
-									{
-										nameLabel,
-										birthdayLabel
-									}
-								}
-							}
-						};
-
-						nameLabel.SetBinding(Label.TextProperty, "Name");
-						birthdayLabel.SetBinding(Label.TextProperty, new Binding("Birthday", BindingMode.OneWay, null, null, "Born {0:d}"));
-						boxView.SetBinding(BoxView.ColorProperty, "FavoriteColor");
-
-						return new ViewCell
-						{
-							View = stack
-						};
-					})
+				ItemTemplate = dataTemplate
 			};
 
 			return listView;
