@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="FormStyles.MainPage">
+  <Grid Style="{DynamicResource basicStyle}">
+  	<Grid.RowDefinitions  >
+  		<RowDefinition Height="auto"/>
+  		<RowDefinition Height="*"/>
+  	</Grid.RowDefinitions>
+
+  	<StackLayout Orientation="Horizontal" Grid.Row="0" HeightRequest="40" Padding="10">
+  		<Button x:Name="btnBlue" 
+  				Text="Blue" 
+  				TextColor="Blue" 
+  				HorizontalOptions="CenterAndExpand"/>
+  		<Button x:Name="btnPink" 
+  				Text="Pink" 
+  				TextColor="Pink" 
+  				HorizontalOptions="CenterAndExpand"/>
+  		<Button x:Name="btnOrange" 
+  				Text="Orange" 
+  				TextColor="#FF6A00" 
+  				HorizontalOptions="CenterAndExpand"/>
+  	</StackLayout>
+
+  	<StackLayout Grid.Row="1" Padding="10" HorizontalOptions="CenterAndExpand">
+
+  		<ProgressBar x:Name="myProgressBar"
+  				 	Style="{DynamicResource basicProgressStyle}" />
+
+  		<Label Text="Forms Styles" Style="{DynamicResource basicLabelStyle}"/>
+
+  		<Slider x:Name="mySlider" 
+  					WidthRequest="200" />
+
+  		<BoxView x:Name="myBoxView" 
+  					HeightRequest="200" 
+  					Style="{DynamicResource basicBoxViewStyle}" />
+
+  		<Button x:Name="myButton"
+  					Text="Click Me" 
+  					Style="{DynamicResource basicButtonStyle}"/>
+
+  		<StackLayout Orientation="Horizontal">
+  			<Switch x:Name="mySwitch" />
+  			<Label x:Name="lblSwitch" 
+  					Text="On" 
+  					Style="{DynamicResource basicLabelStyle}" />
+  		</StackLayout>
+
+  		<StackLayout Orientation="Horizontal">
+  			<Stepper x:Name="myStepper" />
+  			<Label x:Name="lblStepper" 
+  					Text="0" 
+  					Style="{DynamicResource basicLabelStyle}" />
+  		</StackLayout>
+  	</StackLayout>
+  </Grid>
+</ContentPage>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FormStyles.App">
+	<Application.Resources>
+		<ResourceDictionary>
+			<Color x:Key="fgColor">Black</Color>
+			<Color x:Key="bgColor">White</Color>
+			<Color x:Key="acColor">Black</Color>
+			<x:Double x:Key="textSize">24</x:Double>
+
+			<Style x:Key="basicStyle" TargetType="Label">
+				<Setter Property="BackgroundColor" Value="{DynamicResource bgColor}"/>
+			</Style>
+
+			<Style x:Key="basicLabelStyle" TargetType="Label">
+				<Setter Property="FontAttributes" Value="Bold"/>
+				<Setter Property="FontSize" Value="24"/>
+				<Setter Property="TextColor" Value="{DynamicResource fgColor}" />
+			</Style>
+
+			<Style x:key="basicButtonStyle" TargetType="Button">
+				<Setter Property="TextColor" Value="{DynamicResource fgColor}" />
+				<Setter Property="BorderColor" Value="{DynamicResource acColor}" />
+			</Style>
+
+			<Style x:key="basicBoxViewStyle" TargetType="BoxView">
+				<Setter Property="BackgroundColor" Value="{DynamicResource fgColor}" />
+			</Style>
+
+			<Style x:key="basicSwitchStyle" TargetType="Switch">
+				
+
+			</Style>
+
+			<Style x:Key="basicSteppeStyle" TargetType="Stepper">
+				
+			</Style>
+
+		</ResourceDictionary>
+	</Application.Resources>
+</Application>
