@@ -7,15 +7,15 @@
 			<Color x:Key="fgColor">Black</Color>
 			<Color x:Key="bgColor">White</Color>
 			<Color x:Key="acColor">Blue</Color>
-			<x:Double x:Key="normalSize">24</x:Double>
+			<x:Double x:Key="normalTextSize">24</x:Double>
 
-			<Style x:Key="basicStyle" TargetType="Label">
+			<Style x:Key="basicStyle" TargetType="VisualElement">
 				<Setter Property="BackgroundColor" Value="{DynamicResource bgColor}"/>
 			</Style>
 
 			<Style x:Key="basicLabelStyle" TargetType="Label">
 				<Setter Property="FontAttributes" Value="Bold"/>
-				<Setter Property="FontSize" Value="{DynamicResource normalSize}"/>
+				<Setter Property="FontSize" Value="{DynamicResource normalTextSize}"/>
 				<Setter Property="TextColor" Value="{DynamicResource fgColor}" />
 			</Style>
 
@@ -25,7 +25,7 @@
 			</Style>
 
 			<Style x:key="basicBoxViewStyle" TargetType="BoxView">
-				<Setter Property="BackgroundColor" Value="{DynamicResource fgColor}" />
+				<Setter Property="Color" Value="{DynamicResource fgColor}" />
 			</Style>
 
 		</ResourceDictionary>

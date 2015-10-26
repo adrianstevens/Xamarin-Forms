@@ -11,6 +11,7 @@ namespace FormStyles
 		{
 			InitializeComponent ();
 
+			ProgressBar p;
 
 			//http://www.color-hex.com/color/ffb6c1
 			btnBlue.Clicked += (sender, e) => App.SetThemeColors (Color.FromHex("#1E90FF"), Color.FromHex("#E8F3FF"), Color.FromHex("#1EFFFE"));

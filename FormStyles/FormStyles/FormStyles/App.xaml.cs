@@ -10,7 +10,7 @@ namespace FormStyles
 {
     public partial class App : Application
     {
-		public static ISetSystemColors systemColors;
+		public static ISetSystemColors SystemColors { get; set; }
 
         public App()
         {
@@ -18,17 +18,16 @@ namespace FormStyles
 
             // The root page of your application
 			MainPage = new FormStyles.MainPage();
-
         }
 
 		public static void SetThemeColors (Color foreground, Color backgroud, Color accent)
 		{
 			App.Current.Resources["fgColor"] = foreground;
 			App.Current.Resources["bgColor"] = backgroud;
-			App.Current.Resources ["acColor"] = accent;
+			App.Current.Resources["acColor"] = accent;
 
-			if (systemColors != null)
-				systemColors.SetTintColor (accent.R, accent.G, accent.B);
+			if (SystemColors != null)
+				SystemColors.SetTintColor (accent.R, accent.G, accent.B);
 		}
     }
 }

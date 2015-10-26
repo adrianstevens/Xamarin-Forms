@@ -1,12 +1,14 @@
-﻿<Properties StartupItem="FormStyles/FormStyles.Droid/FormStyles.Droid.csproj">
+﻿<Properties StartupItem="FormStyles/FormStyles.iOS/FormStyles.iOS.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6s.9.0" />
   <MonoDevelop.Ide.Workbench ActiveDocument="FormStyles/FormStyles/MainPage.xaml">
     <Files>
-      <File FileName="FormStyles/FormStyles/App.xaml" Line="6" Column="1" />
-      <File FileName="FormStyles/FormStyles/App.xaml.cs" Line="19" Column="1" />
-      <File FileName="FormStyles/FormStyles/obj/Debug/FormStyles.App.xaml.g.cs" Line="1" Column="82" />
-      <File FileName="FormStyles/FormStyles/MainPage.xaml" Line="19" Column="13" />
+      <File FileName="FormStyles/FormStyles/App.xaml" Line="28" Column="49" />
+      <File FileName="FormStyles/FormStyles/App.xaml.cs" Line="1" Column="1" />
+      <File FileName="FormStyles/FormStyles/MainPage.xaml" Line="17" Column="75" />
       <File FileName="FormStyles/FormStyles/MainPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="FormStyles/FormStyles.iOS/AppDelegate.cs" Line="1" Column="1" />
+      <File FileName="FormStyles/FormStyles/ISetSystemColors.cs" Line="1" Column="1" />
+      <File FileName="FormStyles/FormStyles.iOS/SetSystemColors.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

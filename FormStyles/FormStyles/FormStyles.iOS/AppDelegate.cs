@@ -25,7 +25,7 @@ namespace FormStyles.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
-			App.systemColors = new SetSystemColors ();
+			App.SystemColors = new SetSystemColors ();
 
 			return base.FinishedLaunching(app, options);
         }
