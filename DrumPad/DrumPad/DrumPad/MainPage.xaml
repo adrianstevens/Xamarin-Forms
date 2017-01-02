@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DrumPad"
+             x:Class="DrumPad.MainPage"
+             Title="Druminator 3000">
+  
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+  </ContentPage.Padding>
+
+  <Grid x:Name="mainGrid" Padding="7">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+    
+    <StackLayout>
+      <Label Text="Use alternate samples:" />
+      <Switch x:Name="switchDrumSet" />
+    </StackLayout>
+    
+    <StackLayout Grid.Column="1">
+      <Label Text="Volume:" />
+      <Slider x:Name="sliderVolume" Minimum="0" Maximum="1" Value="1" />
+    </StackLayout>
+
+    <Button Grid.Row="1" Grid.Column="0" x:Name="btnPlayTom" Text="TomTom" />
+    <Button Grid.Row="1" Grid.Column="1" x:Name="btnPlaySnare" Text="Snare" />
+    <Button Grid.Row="2" Grid.Column="0" x:Name="btnPlayBass" Text="Bass" />
+    <Button Grid.Row="2" Grid.Column="1" x:Name="btnPlayHiHat" Text="HiHat" />
+
+  </Grid>
+
+</ContentPage>
