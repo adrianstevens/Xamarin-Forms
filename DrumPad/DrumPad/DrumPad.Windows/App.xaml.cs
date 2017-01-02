@@ -64,6 +64,8 @@ namespace DrumPad.Windows
 
                 Xamarin.Forms.Forms.Init(e);
 
+                DrumPad.App.CreateAudioPlayer = () => new SimpleAudioPlayer();
+
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     // TODO: Load state from previously suspended application

@@ -20,7 +20,5 @@ namespace DrumPad.Droid
 
             LoadApplication(new App());
         }
-
-
     }
 }

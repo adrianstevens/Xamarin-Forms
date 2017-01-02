@@ -6,9 +6,6 @@ namespace DrumPad
 {
     public partial class App : Application
     {
-        // public static ISimpleAudioPlayer AudioPlayer;
-
-    
         public static Func<ISimpleAudioPlayer> CreateAudioPlayer { get; set; }
 
         public App()

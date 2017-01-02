@@ -3,7 +3,7 @@ using System.IO;
 using Windows.UI.Xaml.Controls;
 using System;
 
-namespace DrumPad.UWP
+namespace DrumPad.Windows
 {
     class SimpleAudioPlayer : ISimpleAudioPlayer
     {
@@ -26,7 +26,7 @@ namespace DrumPad.UWP
             if (element == null)
                 return;
 
-            if (element.CurrentState == Windows.UI.Xaml.Media.MediaElementState.Playing)
+            if(element.CurrentState == global::Windows.UI.Xaml.Media.MediaElementState.Playing)
             {
                 element.Stop();
             }

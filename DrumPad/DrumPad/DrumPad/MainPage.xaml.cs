@@ -46,7 +46,6 @@ namespace DrumPad
             aniHiHat.Commit(this, "anihh");
 
             LoadSamples(false);
-
         }
 
         private void SliderVolumeValueChanged(object sender, ValueChangedEventArgs e)
@@ -97,17 +96,6 @@ namespace DrumPad
 
             aniHiHat?.Commit(this, "anihh");
         }
-
-        /* private void BtnPlayAllClicked(object sender, EventArgs e)
-         {
-             playBass?.Play();
-             playSnare?.Play();
-             playTomTom?.Play();
-
-             var animation = new Animation(v => btnPlayAll.BackgroundColor = Color.FromRgb(1, v, v), 0, 0.9);
-
-             animation.Commit(this, "colorall");
-         }*/
 
         Stream GetStreamFromFile(string filename)
         {
