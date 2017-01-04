@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:DrumPad"
+             xmlns:local="DrumPad"
+             xmlns:xamu="clr-namespace:XamarinUniversity.Infrastructure"
              x:Class="DrumPad.MainPage" >
   
   <ContentPage.Resources>
     <ResourceDictionary>
       <Color x:Key="colorAppBackground">#29B7BD</Color>
-      <Color x:Key="colorText">#FBF9EC</Color>
-      <Color x:Key="colorControlBackground">#FBF9EC</Color>
-      <Color x:Key="colorButtonBackground">#97958E</Color>
+      <Color x:Key="colorPrimary">#FBF9EC</Color>
         
       <Style x:Key="stylePadButton" TargetType="Button">
-        <Setter Property="TextColor"        Value="{StaticResource colorText}" />
-        <Setter Property="BackgroundColor"  Value="{StaticResource colorButtonBackground}" />
-        <Setter Property="FontSize"         Value="Medium" />
+        <Setter Property="TextColor"       Value="{StaticResource colorPrimary}" />
+        <Setter Property="BackgroundColor" Value="#97958E" />
+        <Setter Property="FontSize"        Value="Medium" />
       </Style>
     </ResourceDictionary>  
   </ContentPage.Resources>
@@ -31,15 +30,15 @@
     </Grid.ColumnDefinitions>
     
     <!-- Logo and app title -->
-    <StackLayout Grid.Column="0" Orientation="Horizontal" BackgroundColor="{StaticResource colorAppBackground}" >
-      <Image x:Name="imgLogo" WidthRequest="75" HeightRequest="75" />
-      <Label Text="Druminator 3000" TextColor="{StaticResource colorText}" FontSize="Medium" FontAttributes="Italic" VerticalOptions="Center" />
+    <StackLayout Grid.Column="0" Orientation="Horizontal">
+      <Image x:Name="imgLogo" WidthRequest="75" HeightRequest="75" Source="{xamu:ImageResource DrumPad.logo.png}" />
+      <Label Text="Druminator 3000" TextColor="{StaticResource colorPrimary}" FontSize="Medium" FontAttributes="Italic" VerticalOptions="Center" />
     </StackLayout>
     
     <!-- Drum sound selection -->
     <StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="Center" >
-      <Label Text="Drum Style" TextColor="{StaticResource colorText}" VerticalOptions="Center" />
-      <Picker x:Name="pickerKits">
+      <Label Text="Drum Style" TextColor="{StaticResource colorPrimary}" VerticalOptions="Center" />
+      <Picker SelectedIndexChanged="PickerKitsSelectedIndexChanged" WidthRequest="120">
         <Picker.Items>
             <x:String>Rock Kit</x:String> 
             <x:String>Techno Kit</x:String>
@@ -49,7 +48,7 @@
     </StackLayout>
 
     <!-- Drum buttons -->
-    <Grid BackgroundColor="{StaticResource colorControlBackground}" Grid.Row="1" Grid.ColumnSpan="2" Padding="7">
+    <Grid BackgroundColor="{StaticResource colorPrimary}" Grid.Row="1" Grid.ColumnSpan="2" Padding="7">
       <Button Grid.Row="0" Grid.Column="0" x:Name="btnPlayTomTom" Text="TomTom" Style="{StaticResource stylePadButton}" />
       <Button Grid.Row="0" Grid.Column="1" x:Name="btnPlaySnare" Text="Snare" Style="{StaticResource stylePadButton}" />
       <Button Grid.Row="1" Grid.Column="0" x:Name="btnPlayBass" Text="Bass" Style="{StaticResource stylePadButton}" />

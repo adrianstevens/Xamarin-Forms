@@ -11,7 +11,5 @@ namespace SimpleAudio
         void Pause();
 
         void Stop();
-
-        void SetVolume(double volume);
     }
 }

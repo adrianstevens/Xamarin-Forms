@@ -23,7 +23,7 @@ namespace DrumPad.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            DrumPad.App.CreateAudioPlayer = () => new SimpleAudioPlayer();
+            DrumPad.App.CreateAudioPlayer = () => new DrumPad.iOS.SimpleAudioPlayer();
 
             LoadApplication(new App());
 

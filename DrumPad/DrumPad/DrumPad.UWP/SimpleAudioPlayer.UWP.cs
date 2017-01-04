@@ -29,6 +29,7 @@ namespace DrumPad.UWP
             if (element.CurrentState == Windows.UI.Xaml.Media.MediaElementState.Playing)
             {
                 element.Stop();
+                element.Play();
             }
             else
             {
@@ -40,6 +41,7 @@ namespace DrumPad.UWP
         {
             element?.Pause();
         }
+
         public void Stop()
         {
             if(element != null)

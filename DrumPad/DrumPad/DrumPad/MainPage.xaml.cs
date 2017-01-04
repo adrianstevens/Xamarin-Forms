@@ -22,15 +22,15 @@ namespace DrumPad
 
         public MainPage()
         {
-            InitializeComponent();
+            for (int i = 0; i < (int)DrumType.count; i++)
+            {
+               players[i] = DrumPad.App.CreateAudioPlayer();
+            }
 
-            imgLogo.Source = ImageSource.FromResource("DrumPad.logo.png");
+            InitializeComponent();
 
             Color colorButton = btnPlayBass.BackgroundColor;
             Color colorHighlight = Color.FromHex("#EF5A56");
-
-            for (int i = 0; i < (int)DrumType.count; i++)
-                players[i] = DrumPad.App.CreateAudioPlayer();
 
             animations[(int)DrumType.Bass]   = new Animation(v => btnPlayBass.BackgroundColor   = GetBlendedColor(colorButton, colorHighlight, v), 0, 1);
             animations[(int)DrumType.HiHat]  = new Animation(v => btnPlayHiHat.BackgroundColor  = GetBlendedColor(colorButton, colorHighlight, v), 0, 1);
@@ -41,10 +41,13 @@ namespace DrumPad
             btnPlaySnare.Clicked  += (s, e) => OnDrumButton(DrumType.Snare);
             btnPlayTomTom.Clicked += (s, e) => OnDrumButton(DrumType.TomTom);
             btnPlayHiHat.Clicked  += (s, e) => OnDrumButton(DrumType.HiHat);
+        }
 
-            pickerKits.SelectedIndexChanged += (s, e) => LoadSamples(pickerKits.SelectedIndex + 1);
+        void PickerKitsSelectedIndexChanged(object sender, EventArgs e)
+        {
+            var picker = sender as Picker;
 
-            LoadSamples(1);
+            LoadSamples(picker.SelectedIndex + 1);
         }
 
         void OnDrumButton(DrumType drumType)
@@ -58,10 +61,10 @@ namespace DrumPad
             if (index < 1 || index > 2)
                 return;
 
-            players[(int)DrumType.Bass].Load(GetStreamFromFile($"Audio.bd{index}.wav"));
-            players[(int)DrumType.Snare].Load(GetStreamFromFile($"Audio.sd{index}.wav"));
-            players[(int)DrumType.TomTom].Load(GetStreamFromFile($"Audio.tt{index}.wav"));
-            players[(int)DrumType.HiHat].Load(GetStreamFromFile($"Audio.hh{index}.wav"));
+           players[(int)DrumType.Bass].Load(GetStreamFromFile($"Audio.bd{index}.wav"));
+           players[(int)DrumType.Snare].Load(GetStreamFromFile($"Audio.sd{index}.wav"));
+           players[(int)DrumType.TomTom].Load(GetStreamFromFile($"Audio.tt{index}.wav"));
+           players[(int)DrumType.HiHat].Load(GetStreamFromFile($"Audio.hh{index}.wav"));
         }
       
         Stream GetStreamFromFile(string filename)
