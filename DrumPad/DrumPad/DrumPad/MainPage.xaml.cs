@@ -8,102 +8,75 @@ namespace DrumPad
 {
     public partial class MainPage : ContentPage
     {
-        ISimpleAudioPlayer playTomTom;
-        ISimpleAudioPlayer playSnare;
-        ISimpleAudioPlayer playBass;
-        ISimpleAudioPlayer playHiHat;
+        enum DrumType
+        {
+            TomTom,
+            Snare,
+            Bass,
+            HiHat,
+            count
+        }
 
-        Animation aniTomTom;
-        Animation aniSnare;
-        Animation aniBass;
-        Animation aniHiHat;
+        ISimpleAudioPlayer[] players = new ISimpleAudioPlayer[(int)DrumType.count];
+        Animation[] animations = new Animation[(int)DrumType.count];
 
         public MainPage()
         {
             InitializeComponent();
 
-            playBass = DrumPad.App.CreateAudioPlayer();
-            playSnare = DrumPad.App.CreateAudioPlayer();
-            playTomTom = DrumPad.App.CreateAudioPlayer();
-            playHiHat = DrumPad.App.CreateAudioPlayer();
+            imgLogo.Source = ImageSource.FromResource("DrumPad.logo.png");
 
-            btnPlayBass.Clicked += BtnPlayBass;
-            btnPlaySnare.Clicked += BtnPlaySnare;
-            btnPlayTom.Clicked += BtnPlayTomTom;
-            btnPlayHiHat.Clicked += BtnPlayHiHat;
+            Color colorButton = btnPlayBass.BackgroundColor;
+            Color colorHighlight = Color.FromHex("#EF5A56");
 
-            aniTomTom = new Animation(v => btnPlayTom.BackgroundColor = Color.FromRgb(1, v, v), 0, 0.9);
-            aniSnare = new Animation(v => btnPlaySnare.BackgroundColor = Color.FromRgb(v, 1, v), 0, 0.9);
-            aniBass = new Animation(v => btnPlayBass.BackgroundColor = Color.FromRgb(v, v, 1), 0, 0.9);
-            aniHiHat = new Animation(v => btnPlayHiHat.BackgroundColor = Color.FromRgb(1, 1, v), 0, 0.9);
+            for (int i = 0; i < (int)DrumType.count; i++)
+                players[i] = DrumPad.App.CreateAudioPlayer();
 
-            switchDrumSet.Toggled += SwitchDrumSetToggled;
-            sliderVolume.ValueChanged += SliderVolumeValueChanged;
+            animations[(int)DrumType.Bass]   = new Animation(v => btnPlayBass.BackgroundColor   = GetBlendedColor(colorButton, colorHighlight, v), 0, 1);
+            animations[(int)DrumType.HiHat]  = new Animation(v => btnPlayHiHat.BackgroundColor  = GetBlendedColor(colorButton, colorHighlight, v), 0, 1);
+            animations[(int)DrumType.Snare]  = new Animation(v => btnPlaySnare.BackgroundColor  = GetBlendedColor(colorButton, colorHighlight, v), 0, 1);
+            animations[(int)DrumType.TomTom] = new Animation(v => btnPlayTomTom.BackgroundColor = GetBlendedColor(colorButton, colorHighlight, v), 0, 1);
 
-            aniTomTom.Commit(this, "anitt");
-            aniSnare.Commit(this, "anisd");
-            aniBass.Commit(this, "anibd");
-            aniHiHat.Commit(this, "anihh");
+            btnPlayBass.Clicked   += (s, e) => OnDrumButton(DrumType.Bass);
+            btnPlaySnare.Clicked  += (s, e) => OnDrumButton(DrumType.Snare);
+            btnPlayTomTom.Clicked += (s, e) => OnDrumButton(DrumType.TomTom);
+            btnPlayHiHat.Clicked  += (s, e) => OnDrumButton(DrumType.HiHat);
 
-            LoadSamples(false);
+            pickerKits.SelectedIndexChanged += (s, e) => LoadSamples(pickerKits.SelectedIndex + 1);
+
+            LoadSamples(1);
         }
 
-        private void SliderVolumeValueChanged(object sender, ValueChangedEventArgs e)
+        void OnDrumButton(DrumType drumType)
         {
-            playBass.SetVolume(sliderVolume.Value);
-            playSnare.SetVolume(sliderVolume.Value);
-            playTomTom.SetVolume(sliderVolume.Value);
-            playHiHat.SetVolume(sliderVolume.Value);
+            players[(int)drumType]?.Play();
+            animations[(int)drumType]?.Commit(this, drumType.ToString());
         }
 
-        private void SwitchDrumSetToggled(object sender, ToggledEventArgs e)
+        void LoadSamples(int index)
         {
-            LoadSamples(switchDrumSet.IsToggled);
+            if (index < 1 || index > 2)
+                return;
+
+            players[(int)DrumType.Bass].Load(GetStreamFromFile($"Audio.bd{index}.wav"));
+            players[(int)DrumType.Snare].Load(GetStreamFromFile($"Audio.sd{index}.wav"));
+            players[(int)DrumType.TomTom].Load(GetStreamFromFile($"Audio.tt{index}.wav"));
+            players[(int)DrumType.HiHat].Load(GetStreamFromFile($"Audio.hh{index}.wav"));
         }
-
-        void LoadSamples (bool altSet)
-        {
-            string set = altSet ? "2" : "1";
-
-            playBass.Load(GetStreamFromFile($"Samples.bd{set}.wav"));
-            playSnare.Load(GetStreamFromFile($"Samples.sd{set}.wav"));
-            playTomTom.Load(GetStreamFromFile($"Samples.tt{set}.wav"));
-            playHiHat.Load(GetStreamFromFile($"Samples.hh{set}.wav"));
-        }
-
-        private void BtnPlayBass(object sender, EventArgs e)
-        {
-            playBass?.Play();
- 
-            aniBass?.Commit(this, "anibd");
-        }
-        private void BtnPlaySnare(object sender, EventArgs e)
-        {
-            playSnare?.Play();
-
-            aniSnare?.Commit(this, "anisd");
-        }
-        private void BtnPlayTomTom(object sender, EventArgs e)
-        {
-            playTomTom?.Play();
-
-            aniTomTom?.Commit(this, "anitt");
-        }
-
-        private void BtnPlayHiHat(object sender, EventArgs e)
-        {
-            playHiHat?.Play();
-
-            aniHiHat?.Commit(this, "anihh");
-        }
-
+      
         Stream GetStreamFromFile(string filename)
         {
             var assembly = typeof(App).GetTypeInfo().Assembly;
-
             var stream = assembly.GetManifestResourceStream("DrumPad." + filename);
 
             return stream;
+        }
+
+        Color GetBlendedColor(Color color1, Color color2, double percentage)
+        {
+            return new Color(percentage * color1.R + (1 - percentage) * color2.R,
+                             percentage * color1.G + (1 - percentage) * color2.G,
+                             percentage * color1.B + (1 - percentage) * color2.B);
         }
     }
 }
