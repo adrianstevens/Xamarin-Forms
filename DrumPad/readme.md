@@ -1,4 +1,3 @@
-,
 #Xamarin.Forms DrumPad (Druminator 3000)
 
 ####Cross-platform drum pad app (UWP, Windows 8.1, Windows Phone 8.1, Android, iOS)
