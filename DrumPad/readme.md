@@ -1,7 +1,7 @@
 
-##Xamarin.Forms DrumPad (Druminator 3000)
+#Xamarin.Forms DrumPad (Druminator 3000)
 
-###Cross-platform drum pad app (UWP, Windows 8.1, Windows Phone 8.1, Android iOS)
+####Cross-platform drum pad app (UWP, Windows 8.1, Windows Phone 8.1, Android iOS)
 - cross platform audio playback
 - shared sound assets
 - animations
