@@ -7,21 +7,19 @@
   
   <ContentPage.Resources>
     <ResourceDictionary>
-      <Color x:Key="colorAppBackground">#29B7BD</Color>
-      <Color x:Key="colorPrimary">#FBF9EC</Color>
-        
       <Style x:Key="stylePadButton" TargetType="Button">
-        <Setter Property="TextColor"       Value="{StaticResource colorPrimary}" />
-        <Setter Property="BackgroundColor" Value="#97958E" />
+        <Setter Property="TextColor"       Value="{DynamicResource highlightColor}" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource buttonColor}" />
         <Setter Property="FontSize"        Value="Medium" />
       </Style>
     </ResourceDictionary>  
   </ContentPage.Resources>
     
-  <Grid Padding="14" BackgroundColor="{StaticResource colorAppBackground}">
+  <Grid Padding="14" BackgroundColor="{DynamicResource backgroundColor}">
     <Grid.RowDefinitions>
       <RowDefinition Height="auto" />
       <RowDefinition Height="*" />
+      <RowDefinition Height="40" />
      </Grid.RowDefinitions>
 
     <Grid.ColumnDefinitions>
@@ -31,15 +29,15 @@
     
     <!-- Logo and app title -->
     <StackLayout Grid.Column="0" Orientation="Horizontal">
-      <Image x:Name="imgLogo" WidthRequest="75" HeightRequest="75" Source="{xamu:ImageResource DrumPad.logo.png}" />
-      <Label Text="Druminator 3001" TextColor="{StaticResource colorPrimary}" FontSize="Medium" FontAttributes="Italic" VerticalOptions="Center" />
+      <Image x:Name="imgLogo" WidthRequest="75" HeightRequest="75" />
+      <Label Text="Druminator 3001" TextColor="{DynamicResource highlightColor}" FontSize="Medium" FontAttributes="Italic" VerticalOptions="Center" />
     </StackLayout>
     
     <!-- Drum sound selection -->
     <StackLayout Grid.Column="1" Orientation="Horizontal" HorizontalOptions="End" VerticalOptions="Center" >
-      <Button x:Name="btnRecord" Text="Record" BackgroundColor="#EF5A56" />
-      <Button x:Name="btnPlay" Text="Play" BackgroundColor="#196E71" />
-      <Label Text="Drum Style" TextColor="{StaticResource colorPrimary}" VerticalOptions="Center" />
+      <Button x:Name="btnRecord" Text="Record" BackgroundColor="{DynamicResource mainColor}" />
+      <Button x:Name="btnPlay" Text="Play" BackgroundColor="{DynamicResource buttonColor}" />
+      <Label Text="Drum Style" TextColor="{DynamicResource highlightColor}" VerticalOptions="Center" />
       <Picker SelectedIndexChanged="PickerKitsSelectedIndexChanged" WidthRequest="120">
         <Picker.Items>
             <x:String>Rock Kit</x:String> 
@@ -50,7 +48,7 @@
     </StackLayout>
 
     <!-- Drum buttons -->
-    <Grid BackgroundColor="{StaticResource colorPrimary}" Grid.Row="1" Grid.ColumnSpan="2" Padding="7" x:Name="gridButtons">
+    <Grid BackgroundColor="{DynamicResource highlightColor}" Grid.Row="1" Grid.ColumnSpan="2" Padding="7" x:Name="gridButtons">
       <Grid.Resources>
         <ResourceDictionary>
           <Style TargetType="Button" BasedOn="{StaticResource stylePadButton}" />
@@ -67,6 +65,12 @@
       <Button Grid.Row="2" Grid.Column="1" x:Name="btnPlayBass1"  Text="Bass1"  />
       <Button Grid.Row="2" Grid.Column="2" x:Name="btnPlayBass2"  Text="Bass2"  />
     </Grid>
+
+    <!-- Other buttons-->
+    <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2">
+      <Button x:Name="btnSettings" Text="Settings" />
+      <Button x:Name="btnAbout" Text="About" />
+    </StackLayout>
 
   </Grid>
 

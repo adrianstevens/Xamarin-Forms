@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Xamarin.Forms;
+using Utilities;
 
 namespace DrumPad
 {
@@ -34,28 +35,52 @@ namespace DrumPad
 
         public MainPage()
         {
+            //force color scheme for now
+            Preferences.Intstance.ColorScheme = ColorSchemes.Schemes[0];
+
             for (int i = 0; i < (int)DrumType.count; i++)
-            {
-                players[i] = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer(); 
-            }
+                players[i] = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
 
             InitializeComponent();
-
-            Color colorButton = btnPlayTomTom.BackgroundColor;
-            Color colorHighlight = Color.FromHex("#EF5A56");
 
             int j = 0;
             foreach (Button button in gridButtons.Children)
             {
                 DrumType drum = (DrumType)j;
                 button.Clicked += (s, e) => OnDrumButton(drum);
-                animations[j++] = new Animation(v => button.BackgroundColor = GetBlendedColor(colorButton, colorHighlight, v), 0, 1);
+                j++;
             }
 
             btnRecord.Clicked += BtnRecordClicked;
-            btnPlay.Clicked += BtnPlayClicked; 
+            btnPlay.Clicked += BtnPlayClicked;
+
+            btnSettings.Clicked += (s, e) => Navigation.PushAsync(new ColorSchemePage());
+            btnAbout.Clicked += (s, e) => DisplayAlert("DrumPad", "v0.5.0", "OK");
+
+            Preferences.Intstance.ColorSchemeUpdated += ColorSchemeUpdated;
+
+            //to set the animations
+            ColorSchemeUpdated(this, Preferences.Intstance.ColorScheme.SchemeType);
         }
-        
+
+        void ColorSchemeUpdated(object sender, ColorSchemeType e)
+        {
+            Color colorButton = XFUtilities.GetColorFromInt(Preferences.Intstance.ColorScheme.ButtonColor);
+            Color colorMain = XFUtilities.GetColorFromInt(Preferences.Intstance.ColorScheme.MainColor);
+            Color colorHighlight = XFUtilities.GetColorFromInt(Preferences.Intstance.ColorScheme.HighlightColor);
+
+            int j = 0;
+            foreach (Button button in gridButtons.Children)
+            {
+                button.BackgroundColor = colorButton;
+                button.TextColor = colorHighlight;
+                animations[j++] = new Animation(v => button.BackgroundColor = GetBlendedColor(colorButton, colorMain, v), 0, 1);
+                
+            }
+
+            imgLogo.Source = ImageSource.FromResource("DrumPad.Images." + Preferences.Intstance.ColorScheme.Logo);
+        }
+
         private void BtnPlayClicked(object sender, EventArgs e)
         {
             if (isRecording || recording.Count == 0)
