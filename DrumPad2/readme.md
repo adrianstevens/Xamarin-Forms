@@ -1,6 +1,12 @@
-#Xamarin.Forms DrumPad (Druminator 3000)
+1#Xamarin.Forms DrumPad (Druminator 3000)
 
 ####DrumPad Sample App (Android, iOS, UWP, Windows 8.1, Windows Phone 8.1)
-Native mobile music app, including audio playback, shared wave files in the PCL, and intuitive UI, including nested layouts and Xamarin.Forms animations.
+This is a follow-up on the DrumPad app built for the 2017 Xamrin Webinar Series.
 
-To see DrumPad in action and learn how to start building native apps, sign up for our free "Xamarin University Presents" Webinar series. Register now https://www.xamarin.com/webinars
+This version is more complete, more complicated, and makes use of the SimpleAudioPlayer nuget package.
+https://www.nuget.org/packages/Xam.Plugin.SimpleAudioPlayer/
+
+Includes:
+- themes
+- animations
+- audio playback
