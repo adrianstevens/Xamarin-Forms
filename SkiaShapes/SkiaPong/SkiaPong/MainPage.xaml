@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SkiaPong"
+             xmlns:views="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             x:Class="SkiaPong.MainPage">
+
+    <ScrollView>
+        <StackLayout>
+            <Label Text="This is a square" HorizontalOptions="Center" />
+            <views:SKCanvasView x:Name="canvasSquare" PaintSurface="OnPaintSquare" WidthRequest="150" HeightRequest="150" />
+
+            <Label Text="This is a circle" HorizontalOptions="Center" />
+            <views:SKCanvasView x:Name="canvasCircle" PaintSurface="OnPaintCircle" WidthRequest="150" HeightRequest="150" />
+
+            <Label Text="This is a shaded star" HorizontalOptions="Center" />
+            <views:SKCanvasView x:Name="canvasStar" PaintSurface="OnPaintShadedStar" WidthRequest="150" HeightRequest="150" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
