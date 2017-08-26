@@ -1,18 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
+using Speedo.Droid;
+using Java.Lang;
+using System.ComponentModel;
 
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-
+[assembly: ExportRenderer(typeof(GaugeView), typeof(GaugeViewRenderer))]
 namespace Speedo.Droid
 {
-    class GaugeViewRenderer
+    class GaugeViewRenderer : ViewRenderer<Gauge, GaugeView>
     {
+        protected override void OnElementChanged(ElementChangedEventArgs<Gauge> e)
+        {
+            base.OnElementChanged(e);
+
+            if (Control == null)
+            {
+
+            }
+        }
+
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            base.OnElementPropertyChanged(sender, e);
+
+            base.OnElementPropertyChanged(sender, e);
+
+            if (e.PropertyName == Gauge.AccentColorProperty.PropertyName)
+            {
+                //......
+            }
+        }
     }
 }

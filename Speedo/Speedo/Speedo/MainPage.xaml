@@ -4,8 +4,13 @@
              xmlns:local="clr-namespace:Speedo"
              x:Class="Speedo.MainPage">
 
-	<Label Text="Welcome to Xamarin Forms!" 
+    <StackLayout>
+        <Label Text="Welcome to Xamarin Forms!" 
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
 
+        <local:Gauge MinValue="0" MaxValue="240" CurrentValue="100" />
+
+    </StackLayout>
+	
 </ContentPage>

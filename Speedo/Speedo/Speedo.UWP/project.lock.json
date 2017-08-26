@@ -22272,16 +22272,16 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "f:\\XamDev\\Speedo\\Speedo\\Speedo.UWP\\Speedo.UWP.csproj",
+      "projectUniqueName": "F:\\dev\\open\\Xamarin-Forms\\Speedo\\Speedo\\Speedo.UWP\\Speedo.UWP.csproj",
       "projectName": "Speedo.UWP",
-      "projectPath": "f:\\XamDev\\Speedo\\Speedo\\Speedo.UWP\\Speedo.UWP.csproj",
-      "projectJsonPath": "f:\\XamDev\\Speedo\\Speedo\\Speedo.UWP\\project.json",
+      "projectPath": "F:\\dev\\open\\Xamarin-Forms\\Speedo\\Speedo\\Speedo.UWP\\Speedo.UWP.csproj",
+      "projectJsonPath": "F:\\dev\\open\\Xamarin-Forms\\Speedo\\Speedo\\Speedo.UWP\\project.json",
       "projectStyle": "ProjectJson",
       "frameworks": {
         "uap10.0": {
           "projectReferences": {
-            "f:\\XamDev\\Speedo\\Speedo\\Speedo\\Speedo.csproj": {
-              "projectPath": "f:\\XamDev\\Speedo\\Speedo\\Speedo\\Speedo.csproj"
+            "F:\\dev\\open\\Xamarin-Forms\\Speedo\\Speedo\\Speedo\\Speedo.csproj": {
+              "projectPath": "F:\\dev\\open\\Xamarin-Forms\\Speedo\\Speedo\\Speedo\\Speedo.csproj"
             }
           }
         }
