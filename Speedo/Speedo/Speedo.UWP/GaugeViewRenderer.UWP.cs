@@ -17,6 +17,7 @@ namespace Speedo.UWP
             if (Control == null)
             {
                 var gaugeView = new GaugeView();
+                gaugeView.NeedleColor = GetWindowsColor(Color.Green);
     
                 SetNativeControl(gaugeView);
             }
@@ -30,6 +31,11 @@ namespace Speedo.UWP
             {
                 //......
             }
+        }
+
+        Windows.UI.Color GetWindowsColor(Color color)
+        {
+            return Windows.UI.Color.FromArgb((byte)(255 * color.A), (byte)(255 * color.R), (byte)(255 * color.G), (byte)(255 * color.B));
         }
     }
 }
