@@ -4,8 +4,9 @@ using Xamarin.Forms.Platform.Android;
 using Speedo.Droid;
 using Java.Lang;
 using System.ComponentModel;
+using Speedo;
 
-[assembly: ExportRenderer(typeof(GaugeView), typeof(GaugeViewRenderer))]
+[assembly: ExportRenderer(typeof(Gauge), typeof(GaugeViewRenderer))]
 namespace Speedo.Droid
 {
     class GaugeViewRenderer : ViewRenderer<Gauge, GaugeView>
@@ -16,7 +17,9 @@ namespace Speedo.Droid
 
             if (Control == null)
             {
+                var gaugeView = new GaugeView(Forms.Context);
 
+                SetNativeControl(gaugeView);
             }
         }
 
@@ -26,7 +29,7 @@ namespace Speedo.Droid
 
             base.OnElementPropertyChanged(sender, e);
 
-            if (e.PropertyName == Gauge.AccentColorProperty.PropertyName)
+            //if (e.PropertyName == Gauge.AccentColorProperty.PropertyName)
             {
                 //......
             }

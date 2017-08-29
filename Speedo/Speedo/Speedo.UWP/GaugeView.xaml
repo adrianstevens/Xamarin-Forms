@@ -6,10 +6,72 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="300"
+    d:DesignHeight="400"
     d:DesignWidth="400">
 
-    <Grid>
+    <Viewbox>
+        <Grid>
 
-    </Grid>
+            <Grid x:Name="backGrid" Width="200" Height="200" Background="Black" />
+
+            <Grid x:Name="mainGrid" Width="200" Height="200">
+                <Ellipse Width="155" Height="155" Stroke="White" />
+
+                <!-- Text Boxes -->
+                <TextBlock Name="txtMax"
+                                    Foreground="#808080"
+                                    FontSize="10"
+                                    FontWeight="SemiBold"
+                                    Text="max"
+                                    TextAlignment="Center"
+                                    Margin="0 76 0 0" />
+
+                <TextBlock Name="txtMaxValue"
+                                    Foreground="#808080"
+                                    FontSize="14"
+                                    FontWeight="SemiBold"
+                                    Text="0"
+                                    TextAlignment="Center"
+                                    Margin="0 63 0 0" />
+
+                <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <TextBlock Name="txtValue"
+                                                    Foreground="White"
+                                                    FontSize="20"
+                                                    FontWeight="SemiBold"
+                                                    Text="100"
+                                                    TextAlignment="Center"
+                                                    Margin="0 0 0 2" />
+                    <TextBlock Name="txtUnits" Foreground="White"
+                                                    FontSize="16"
+                                                    TextAlignment="Center"
+                                                    Text="mph"
+                                                    Margin="0" />
+                </StackPanel>
+
+                <!-- Trail -->
+                <Path Name="PART_Trail"
+                        Stroke="#88808080"
+                        StrokeThickness="5" />
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <!-- The RenderTransform is in code behind.   -->
+                    <Path Name="PART_Needle"
+                                Stretch="Uniform"
+                                HorizontalAlignment="Center"
+                                Fill="#FDAD16"
+                                Stroke="#66FDAD16"
+                                Data="M 1,0 l -1,100 l 4,0 l -1,-100 l -2,0"
+                                RenderTransformOrigin="0.5,1">
+                    </Path>
+                </Grid>
+
+            </Grid>
+        </Grid>
+    </Viewbox>
 </UserControl>

@@ -3,8 +3,9 @@ using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.UWP;
 using System.ComponentModel;
+using Speedo;
 
-[assembly: ExportRenderer(typeof(GaugeView), typeof(GaugeViewRenderer))]
+[assembly: ExportRenderer(typeof(Gauge), typeof(GaugeViewRenderer))]
 namespace Speedo.UWP
 {
     class GaugeViewRenderer : ViewRenderer<Gauge, GaugeView>
@@ -15,7 +16,9 @@ namespace Speedo.UWP
 
             if (Control == null)
             {
-
+                var gaugeView = new GaugeView();
+    
+                SetNativeControl(gaugeView);
             }
         }
 
@@ -23,7 +26,7 @@ namespace Speedo.UWP
         {
             base.OnElementPropertyChanged(sender, e);
 
-            if (e.PropertyName == Gauge.AccentColorProperty.PropertyName)
+            //if (e.PropertyName == Gauge.AccentColorProperty.PropertyName)
             {
                 //......
             }

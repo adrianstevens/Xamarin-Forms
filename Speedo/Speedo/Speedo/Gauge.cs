@@ -5,7 +5,7 @@ namespace Speedo
 {
     public class Gauge : View, IGaugeController
     {
-        public static readonly BindableProperty TickColorProperty = BindableProperty.Create("TickColor", typeof(Color), typeof(Gauge), Color.Blue);
+      /*  public static readonly BindableProperty TickColorProperty = BindableProperty.Create("TickColor", typeof(Color), typeof(Gauge), Color.Blue);
         public static readonly BindableProperty AccentColorProperty = BindableProperty.Create("AccentColor", typeof(Color), typeof(Gauge), Color.Orange);
         public static readonly BindableProperty TextColorProperty = BindableProperty.Create("TextColor", typeof(Color), typeof(Gauge), Color.White);
         public static readonly BindableProperty GaugeColorProperty = BindableProperty.Create("GaugeColor", typeof(Color), typeof(Gauge), Color.Black);
@@ -55,6 +55,6 @@ namespace Speedo
         {
             get { return (Double)GetValue(CurrentValueProperty); }
             set { SetValue(CurrentValueProperty, value); }
-        }
+        }*/
     }
 }

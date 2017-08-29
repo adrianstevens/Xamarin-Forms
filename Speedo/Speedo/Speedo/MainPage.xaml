@@ -9,7 +9,7 @@
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
 
-        <local:Gauge MinValue="0" MaxValue="240" CurrentValue="100" />
+        <local:Gauge WidthRequest="600" HeightRequest="600" HorizontalOptions="Start" />
 
     </StackLayout>
 	

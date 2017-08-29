@@ -5,8 +5,9 @@ using Xamarin.Forms.Platform.iOS;
 using Foundation;
 using UIKit;
 using System.ComponentModel;
+using Speedo;
 
-[assembly: ExportRenderer(typeof(GaugeView), typeof(GaugeViewRenderer))]
+[assembly: ExportRenderer(typeof(Gauge), typeof(GaugeViewRenderer))]
 namespace Speedo.iOS
 {
     class GaugeViewRenderer : ViewRenderer<Gauge, GaugeView>
@@ -17,7 +18,9 @@ namespace Speedo.iOS
 
             if (Control == null)
             {
+                var gaugeView = new GaugeView();
 
+                SetNativeControl(gaugeView);
             }
         }
 
@@ -27,7 +30,7 @@ namespace Speedo.iOS
 
             base.OnElementPropertyChanged(sender, e);
 
-            if (e.PropertyName == Gauge.AccentColorProperty.PropertyName)
+            //if (e.PropertyName == Gauge.AccentColorProperty.PropertyName)
             {
                 //......
             }
