@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrumPad", "DrumPad\DrumPad\DrumPad.csproj", "{D1867B32-A620-4884-AD82-0D5BE337350C}"
 EndProject
@@ -188,6 +188,7 @@ Global
 		{6F402038-B632-4403-90B8-2C7957B20F9A}.Debug|x64.ActiveCfg = Debug|iPhone
 		{6F402038-B632-4403-90B8-2C7957B20F9A}.Debug|x86.ActiveCfg = Debug|iPhone
 		{6F402038-B632-4403-90B8-2C7957B20F9A}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{6F402038-B632-4403-90B8-2C7957B20F9A}.Release|Any CPU.Build.0 = Release|iPhone
 		{6F402038-B632-4403-90B8-2C7957B20F9A}.Release|ARM.ActiveCfg = Release|iPhone
 		{6F402038-B632-4403-90B8-2C7957B20F9A}.Release|iPhone.ActiveCfg = Release|iPhone
 		{6F402038-B632-4403-90B8-2C7957B20F9A}.Release|iPhone.Build.0 = Release|iPhone
@@ -320,6 +321,8 @@ Global
 		{72D5D576-11F8-46EB-B175-9B459A66D6BF}.Debug|x86.Build.0 = Debug|x86
 		{72D5D576-11F8-46EB-B175-9B459A66D6BF}.Debug|x86.Deploy.0 = Debug|x86
 		{72D5D576-11F8-46EB-B175-9B459A66D6BF}.Release|Any CPU.ActiveCfg = Release|x86
+		{72D5D576-11F8-46EB-B175-9B459A66D6BF}.Release|Any CPU.Build.0 = Release|x86
+		{72D5D576-11F8-46EB-B175-9B459A66D6BF}.Release|Any CPU.Deploy.0 = Release|x86
 		{72D5D576-11F8-46EB-B175-9B459A66D6BF}.Release|ARM.ActiveCfg = Release|ARM
 		{72D5D576-11F8-46EB-B175-9B459A66D6BF}.Release|ARM.Build.0 = Release|ARM
 		{72D5D576-11F8-46EB-B175-9B459A66D6BF}.Release|ARM.Deploy.0 = Release|ARM

@@ -16,8 +16,6 @@ namespace DrumPad.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-            DrumPad.App.CreateAudioPlayer = () => new SimpleAudioPlayer();
-
             LoadApplication(new App());
         }
     }
