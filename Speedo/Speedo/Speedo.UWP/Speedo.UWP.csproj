@@ -96,6 +96,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ColorToBrushConverter.cs" />
     <Compile Include="GaugeView.xaml.cs">
       <DependentUpon>GaugeView.xaml</DependentUpon>
     </Compile>

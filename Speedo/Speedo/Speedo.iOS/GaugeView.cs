@@ -1,4 +1,5 @@
 ﻿using System;
+using CoreGraphics;
 using Foundation;
 using UIKit;
 
@@ -18,6 +19,23 @@ namespace Speedo.iOS
             {
 
             }
+        }
+
+        public override void Draw(CGRect rect)
+        {
+            base.Draw(rect);
+
+            using (CGContext cg = UIGraphics.GetCurrentContext())
+            {
+                DrawGauge(cg);
+            };
+        }
+
+        void DrawGauge (CGContext cg)
+        {
+
+
+
         }
     }
 }

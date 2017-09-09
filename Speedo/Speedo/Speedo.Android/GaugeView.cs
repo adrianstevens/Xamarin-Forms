@@ -49,8 +49,5 @@ namespace Speedo.Droid
         {
             circle.Draw(canvas);
         }
-
-
-    }
     }
 }

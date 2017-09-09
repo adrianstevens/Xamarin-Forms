@@ -7,6 +7,7 @@ using Windows.UI.Xaml.Shapes;
 using Windows.UI.Xaml;
 using System.Runtime.CompilerServices;
 using System.ComponentModel;
+using Windows.UI.Xaml.Data;
 
 namespace Speedo.UWP
 {
@@ -18,48 +19,49 @@ namespace Speedo.UWP
 
 
         double needleAngle { get; set; }
-        Color accentColor { get; set; } = Colors.Orange;
 
-
+  
         public Color NeedleColor
         {
             get { return (Color)GetValue(NeedleColorProperty); }
-            set { SetValueDp(NeedleColorProperty, value); }
+            set { SetValue(NeedleColorProperty, value); }
         }
         public static readonly DependencyProperty NeedleColorProperty = 
             DependencyProperty.Register("NeedleColor", typeof(Color), typeof(GaugeView), null);
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        void SetValueDp(DependencyProperty property, object value, [CallerMemberName] String p = null)
+        public Color AccentColor
         {
-            SetValue(property, value);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(p));
+            get { return (Color)GetValue(AccentColorProperty); }
+            set { SetValue(AccentColorProperty, value); }
         }
-    
+        public static readonly DependencyProperty AccentColorProperty =
+            DependencyProperty.Register("AccentColor", typeof(Color), typeof(GaugeView), null);
 
 
 
-        
+
+
+
+
         //Color colorTick = Color.FromArgb(255, 22, 102, 255);
         //Color colorAccent = Color.FromArgb(255, 0, 255, 255);
 
         public GaugeView()
         {
             this.InitializeComponent();
-         //   (this.Content as FrameworkElement).DataContext = this;
+            (this.Content as FrameworkElement).DataContext = this;
 
             CreateTicks();
 
-          //  SetNeedleColor(needleColor, accentColor);
-
             UpdateValue(Value);
+
+            btnClick.Click += BtnClick;
         }
 
-        void SetNeedleColor(Color colorNeedle, Color colorAccent)
+        private void BtnClick(object sender, RoutedEventArgs e)
         {
-            needle.Fill = new SolidColorBrush(colorNeedle);
-            colorNeedle.A = 0x66;
-            needle.Stroke = new SolidColorBrush(colorNeedle);
+            Random rand = new Random();
+            NeedleColor = Color.FromArgb(255, (byte)rand.Next(256), (byte)rand.Next(256), (byte)rand.Next(256));
         }
 
         void CreateTicks()
@@ -80,7 +82,8 @@ namespace Speedo.UWP
                 }
 
                 backGrid.Children.Add(GetTick(i / 2 * 25 + 30, rcLarge, Colors.White));
-                backGrid.Children.Add(GetTick(i / 2 * 25 + 30, rcInner, accentColor));
+                backGrid.Children.Add(GetTick(i / 2 * 25 + 30, rcInner, AccentColor));
+
                 if (i % 4 == 0)
                     backGrid.Children.Add(GetTickLabel(i * 12.5 + 30));
             }
@@ -92,15 +95,26 @@ namespace Speedo.UWP
             transform.Children.Add(new TranslateTransform() { X = 0, Y = 0 });
             transform.Children.Add(new RotateTransform() { Angle = angle });
 
+            var binding = new Binding()
+            {
+                Source = this,
+                Path = new PropertyPath("NeedleColor"),
+                Converter = new ColorToBrushConverter()
+            };
+
             var path = new Path()
             {
                 Data = new RectangleGeometry() { Rect = rectTick },
-                Fill = new SolidColorBrush(tickColor),
+                // Fill = new SolidColorBrush(tickColor),
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
                 RenderTransformOrigin = new Point(0.5, 0.5),
                 RenderTransform = transform,
             };
+
+            BindingOperations.SetBinding(path, Shape.FillProperty, binding);
+            
+            //path.Fill
 
             return path;
         }
