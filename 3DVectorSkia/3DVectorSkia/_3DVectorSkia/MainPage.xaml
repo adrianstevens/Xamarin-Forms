@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:_3DVectorSkia"
+             xmlns:views="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             x:Class="_3DVectorSkia.MainPage">
+
+    <StackLayout BackgroundColor="AliceBlue">
+        <Label Text="Welcome to Xamarin Forms!" 
+           VerticalOptions="Center" 
+           HorizontalOptions="Center" />
+
+        <views:SKCanvasView x:Name="canvas" PaintSurface="OnPaintSurface" 
+                            WidthRequest="300" HeightRequest="300"
+                            HorizontalOptions="Center"/>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" WidthRequest="300">
+            <Label Text="X"/>
+            <Slider x:Name="xSlider" WidthRequest="200" Minimum="-1" Maximum="1" />
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" WidthRequest="300">
+            <Label Text="Y"/>
+            <Slider x:Name="ySlider" WidthRequest="200" Minimum="-1" Maximum="1" />
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" WidthRequest="300">
+            <Label Text="Z"/>
+            <Slider x:Name="zSlider" WidthRequest="200" Minimum="-1" Maximum="1" />
+        </StackLayout>
+
+
+    </StackLayout>
+	
+</ContentPage>
