@@ -39,7 +39,10 @@ namespace DrumPad
             Preferences.Intstance.ColorScheme = ColorSchemes.Schemes[0];
 
             for (int i = 0; i < (int)DrumType.count; i++)
+            {
                 players[i] = CrossSimpleAudioPlayer.CreateSimpleAudioPlayer();
+                players[i].Loop = false;
+            }
 
             InitializeComponent();
 
@@ -55,7 +58,7 @@ namespace DrumPad
             btnPlay.Clicked += BtnPlayClicked;
 
             btnSettings.Clicked += (s, e) => Navigation.PushAsync(new ColorSchemePage());
-            btnAbout.Clicked += (s, e) => DisplayAlert("DrumPad", "v0.5.0", "OK");
+            btnAbout.Clicked += (s, e) => DisplayAlert("DrumPad", "v0.5.1", "OK");
 
             Preferences.Intstance.ColorSchemeUpdated += ColorSchemeUpdated;
 
