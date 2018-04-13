@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SimpleAudioRecorder"
+             x:Class="SimpleAudioRecorder.MainPage">
+
+    <StackLayout>
+        <Label Text="Simple Audio Player" />
+        <Button x:Name="btnRecord" Text="Record" />
+        <Button x:Name="btnStop" Text="Stop" />
+        <Button x:Name="btnPlay" Text="Play" />
+        <Button x:Name="btnToText" Text="Get Text" />
+        <Label x:Name="lblText" />
+
+    </StackLayout>
+
+</ContentPage>
