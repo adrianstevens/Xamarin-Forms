@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="1c030072-74de-4930-b499-7c557acb333c"
-    Publisher="CN=Adrian"
+    Name="cb5bd495-b2b4-4bc2-af4d-59b0ca977f70"
+    Publisher="CN=00b7ccff-d981-462b-8614-02556dcdd42e"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="1c030072-74de-4930-b499-7c557acb333c" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-485c-81be-68815c480690" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>DrumPad.UWP</DisplayName>
-    <PublisherDisplayName>Adrian</PublisherDisplayName>
+    <PublisherDisplayName>00b7ccff-d981-462b-8614-02556dcdd42e</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 

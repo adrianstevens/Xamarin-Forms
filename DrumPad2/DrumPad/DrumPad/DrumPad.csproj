@@ -1,89 +1,56 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D1867B32-A620-4884-AD82-0D5BE337350C}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DrumPad</RootNamespace>
-    <AssemblyName>DrumPad</AssemblyName>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ColorSchemePage.xaml.cs">
-      <DependentUpon>ColorSchemePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ColorSchemes.cs" />
-    <Compile Include="XFUtilities.cs" />
-    <Compile Include="ImageResourceConverter.cs" />
-    <Compile Include="ImageResourceExtension.cs" />
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Note.cs" />
-    <Compile Include="Preferences.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ThemeSelectPage.xaml.cs">
-      <DependentUpon>ThemeSelectPage.xaml</DependentUpon>
-    </Compile>
+    <None Remove="Audio\bd1.wav" />
+    <None Remove="Audio\bd2.wav" />
+    <None Remove="Audio\hh1.wav" />
+    <None Remove="Audio\hh2.wav" />
+    <None Remove="Audio\Rock\bd1.wav" />
+    <None Remove="Audio\Rock\bd2.wav" />
+    <None Remove="Audio\Rock\clap.wav" />
+    <None Remove="Audio\Rock\hh1.wav" />
+    <None Remove="Audio\Rock\hh2.wav" />
+    <None Remove="Audio\Rock\sd1.wav" />
+    <None Remove="Audio\Rock\sd2.wav" />
+    <None Remove="Audio\Rock\shake.wav" />
+    <None Remove="Audio\Rock\tt1.wav" />
+    <None Remove="Audio\sd1.wav" />
+    <None Remove="Audio\sd2.wav" />
+    <None Remove="Audio\Techno\bd1.wav" />
+    <None Remove="Audio\Techno\bd2.wav" />
+    <None Remove="Audio\Techno\clap.wav" />
+    <None Remove="Audio\Techno\hh1.wav" />
+    <None Remove="Audio\Techno\hh2.wav" />
+    <None Remove="Audio\Techno\sd1.wav" />
+    <None Remove="Audio\Techno\sd2.wav" />
+    <None Remove="Audio\Techno\shake.wav" />
+    <None Remove="Audio\Techno\tt1.wav" />
+    <None Remove="Audio\tt1.wav" />
+    <None Remove="Audio\tt2.wav" />
+    <None Remove="Images\Black.png" />
+    <None Remove="Images\BlackLogo.png" />
+    <None Remove="Images\Blue.png" />
+    <None Remove="Images\BlueLogo.png" />
+    <None Remove="Images\Orange-Sq.png" />
+    <None Remove="Images\Orange.png" />
+    <None Remove="Images\OrangeLogo.png" />
+    <None Remove="Images\Pink.png" />
+    <None Remove="Images\PinkLogo.png" />
+    <None Remove="Images\Primary.png" />
+    <None Remove="Images\PrimaryLogo.png" />
+    <None Remove="Images\Sand.png" />
+    <None Remove="Images\SandLogo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="MainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="GettingStarted.Xamarin" />
-    <None Include="packages.config" />
-  </ItemGroup>
+
   <ItemGroup>
     <EmbeddedResource Include="Audio\bd1.wav" />
-    <EmbeddedResource Include="Audio\sd1.wav" />
-    <EmbeddedResource Include="Audio\tt1.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Audio\hh1.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Audio\bd2.wav" />
-    <EmbeddedResource Include="Audio\sd2.wav" />
-    <EmbeddedResource Include="Audio\tt2.wav" />
+    <EmbeddedResource Include="Audio\hh1.wav" />
     <EmbeddedResource Include="Audio\hh2.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Audio\Rock\bd1.wav" />
     <EmbeddedResource Include="Audio\Rock\bd2.wav" />
     <EmbeddedResource Include="Audio\Rock\clap.wav" />
@@ -93,6 +60,8 @@
     <EmbeddedResource Include="Audio\Rock\sd2.wav" />
     <EmbeddedResource Include="Audio\Rock\shake.wav" />
     <EmbeddedResource Include="Audio\Rock\tt1.wav" />
+    <EmbeddedResource Include="Audio\sd1.wav" />
+    <EmbeddedResource Include="Audio\sd2.wav" />
     <EmbeddedResource Include="Audio\Techno\bd1.wav" />
     <EmbeddedResource Include="Audio\Techno\bd2.wav" />
     <EmbeddedResource Include="Audio\Techno\clap.wav" />
@@ -102,43 +71,37 @@
     <EmbeddedResource Include="Audio\Techno\sd2.wav" />
     <EmbeddedResource Include="Audio\Techno\shake.wav" />
     <EmbeddedResource Include="Audio\Techno\tt1.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="ThemeSelectPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="ColorSchemePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
+    <EmbeddedResource Include="Audio\tt1.wav" />
+    <EmbeddedResource Include="Audio\tt2.wav" />
+    <EmbeddedResource Include="Images\Black.png" />
+    <EmbeddedResource Include="Images\BlackLogo.png" />
     <EmbeddedResource Include="Images\Blue.png" />
     <EmbeddedResource Include="Images\BlueLogo.png" />
+    <EmbeddedResource Include="Images\Orange-Sq.png" />
     <EmbeddedResource Include="Images\Orange.png" />
     <EmbeddedResource Include="Images\OrangeLogo.png" />
     <EmbeddedResource Include="Images\Pink.png" />
     <EmbeddedResource Include="Images\PinkLogo.png" />
     <EmbeddedResource Include="Images\Primary.png" />
     <EmbeddedResource Include="Images\PrimaryLogo.png" />
-    <EmbeddedResource Include="Images\SandLogo.png" />
     <EmbeddedResource Include="Images\Sand.png" />
+    <EmbeddedResource Include="Images\SandLogo.png" />
   </ItemGroup>
+
   <ItemGroup>
-    <EmbeddedResource Include="Images\Black.png" />
-    <EmbeddedResource Include="Images\BlackLogo.png" />
-    <Content Include="Images\Orange-Sq.png" />
+    <PackageReference Include="Xam.Plugin.SimpleAudioPlayer" Version="1.2.1.1-beta" />
+    <PackageReference Include="Xamarin.Forms" Version="3.0.0.427558-pre4" />
   </ItemGroup>
+
   <ItemGroup>
-    <Reference Include="Plugin.SimpleAudioPlayer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugin.SimpleAudioPlayer.1.0.1\lib\netstandard1.0\Plugin.SimpleAudioPlayer.dll</HintPath>
-    </Reference>
-    <Reference Include="Plugin.SimpleAudioPlayer.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xam.Plugin.SimpleAudioPlayer.1.0.1\lib\netstandard1.0\Plugin.SimpleAudioPlayer.Abstractions.dll</HintPath>
-    </Reference>
+    <EmbeddedResource Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ColorSchemePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
