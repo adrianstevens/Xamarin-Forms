@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Radio.LessonsPage">
+    <ListView
+          x:Name="lessonsList"
+          ItemsSource="{Binding Lessons}"
+          CachingStrategy="RecycleElement"
+          ItemTapped="OnLessonTapped" 
+	      HasUnevenRows="true" >
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                  <StackLayout Padding="5" BackgroundColor="{StaticResource ColorBackground}">
+                        <Label Text="{Binding Title}" FontSize="Medium" TextColor="#E2E2E2" />
+                        <Label Text="{Binding NumberOfQuestions, StringFormat='Questions: {0}'}" FontSize="Small" TextColor="{StaticResource ColorNextButton}" />
+                  </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+         </ListView.ItemTemplate>
+      </ListView>
+</ContentPage>

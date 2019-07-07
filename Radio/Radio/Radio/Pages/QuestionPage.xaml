@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:effect="clr-namespace:Radio;assembly=Radio" 
+		xmlns:local="clr-namespace:Radio;assembly=Radio"
+		x:Class="Radio.QuestionPage" 
+		Title="{Binding PageTitle}"
+        BackgroundColor="{StaticResource ColorBackground}">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="LabelQuestion" TargetType="Label">
+				<Setter Property="TextColor" Value="White" />
+				<Setter Property="Margin" Value="10" />
+				<Setter Property="FontSize" Value="Small" />
+				<Setter Property="VerticalTextAlignment" Value="Center" />
+				<Setter Property="HorizontalTextAlignment" Value="Center" />
+			</Style>
+            <Style x:Key="ButtonQuestion" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource ColorQuestionButton}" />
+            </Style>
+                   
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	<Page.ToolbarItems>
+		<ToolbarItem Text="End" Clicked="QuitClicked" />
+	</Page.ToolbarItems>
+	<Grid Padding="10" ColumnSpacing="10" RowSpacing="20">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="auto" />
+		</Grid.RowDefinitions>
+		<ScrollView>
+			<StackLayout Grid.Row="0">
+                <Label Text="{Binding Timer}" IsVisible="{Binding ShowTimer}" TextColor="{StaticResource ColorText}" HorizontalTextAlignment="End" />
+                <Label Text="{Binding Question}" TextColor="#919191" FontSize="Small" />
+				<Grid>
+                    <Button Style="{StaticResource ButtonQuestion}" Command="{Binding AnswerSelected[0]}" IsEnabled="{Binding AreAnswersEnabled}">
+                        <Button.Effects>
+							<effect:GradientEffect />
+							<effect:DisabledOpacityEffect />
+						</Button.Effects>
+					</Button>
+					<Label Text="{Binding Answers[0]}" Style="{StaticResource LabelQuestion}" InputTransparent="True" />
+
+				</Grid>
+				<Grid>
+                    <Button Style="{StaticResource ButtonQuestion}" Command="{Binding AnswerSelected[1]}" IsEnabled="{Binding AreAnswersEnabled}">
+						<Button.Effects>
+							<effect:GradientEffect />
+							<effect:DisabledOpacityEffect />
+						</Button.Effects>
+					</Button>
+                    <Label Text="{Binding Answers[1]}" Style="{StaticResource LabelQuestion}" InputTransparent="True" />
+				</Grid>
+				<Grid>
+                    <Button Style="{StaticResource ButtonQuestion}" Command="{Binding AnswerSelected[2]}" IsEnabled="{Binding AreAnswersEnabled}">
+						<Button.Effects>
+							<effect:GradientEffect />
+							<effect:DisabledOpacityEffect />
+						</Button.Effects>
+					</Button>
+                    <Label Text="{Binding Answers[2]}" Style="{StaticResource LabelQuestion}"  InputTransparent="True" />
+				</Grid>
+				<Grid>
+                    <Button Style="{StaticResource ButtonQuestion}" Command="{Binding AnswerSelected[3]}" IsEnabled="{Binding AreAnswersEnabled}">
+						<Button.Effects>
+							<effect:GradientEffect />
+							<effect:DisabledOpacityEffect />
+						</Button.Effects>
+					</Button>
+                    <Label Text="{Binding Answers[3]}" Style="{StaticResource LabelQuestion}" InputTransparent="True" />
+				</Grid>
+                <Label Grid.Row="2" Text="{Binding Response}" TextColor="{StaticResource ColorText}" >
+                    <Label.Triggers>
+                        <DataTrigger Binding="{Binding ShowExplanation}" TargetType="Label" Value="True">
+                            <Setter Property="TextColor" Value="{StaticResource ColorCorrectButton}" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                    
+                <Label IsVisible="{Binding ShowExplanation}" Grid.Row="3" Text="{Binding Explanation}" TextColor="{StaticResource ColorText}" />
+			</StackLayout>
+		</ScrollView>
+		<Grid Grid.Row="1">
+            <Button Grid.Column="1" Text="Next →" TextColor="White" BackgroundColor="{StaticResource ColorNextButton}" Command="{Binding NextSelected}">
+				<Button.Effects>
+					<effect:GradientEffect />
+					<effect:DisabledOpacityEffect />
+				</Button.Effects>
+			</Button>
+            <Button Grid.Column="0" Text="← Previous" TextColor="White" BackgroundColor="{StaticResource ColorBackButton}" Command="{Binding BackSelected}">
+				<Button.Effects>
+					<effect:GradientEffect />
+					<effect:DisabledOpacityEffect />
+				</Button.Effects>
+			</Button>
+		</Grid>
+	</Grid>
+</ContentPage>

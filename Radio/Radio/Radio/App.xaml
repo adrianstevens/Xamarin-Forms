@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Radio.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="ColorQuestionButton">#0077AF</Color>
+            <Color x:Key="ColorCorrectButton">#FF6700</Color>
+            <Color x:Key="ColorBackButton">#ED145B</Color>
+            <Color x:Key="ColorNextButton">#00A87A</Color>
+            <Color x:Key="ColorText">#777777</Color>
+            <Color x:Key="ColorBackground">#222222</Color>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>   
