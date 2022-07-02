@@ -152,7 +152,7 @@
       <Version>1.2.1.1-beta</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="3.0.0.427558-pre4" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.6" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DrumPad\DrumPad.csproj">
